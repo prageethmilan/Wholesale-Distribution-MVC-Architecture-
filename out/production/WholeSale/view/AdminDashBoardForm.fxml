@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="adminDashBoardContext" prefHeight="1000.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashBoardFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f63c9" height="134.0" stroke="BLACK" strokeType="INSIDE" width="1931.0" />
+      <JFXButton buttonType="RAISED" layoutX="33.0" layoutY="44.0" onAction="#backToLogin" prefHeight="44.0" prefWidth="119.0" stylesheets="@../styles/Button.css" text="Log Out">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="611.0" layoutY="21.0" text="Wholesale Distribution" textFill="#eaff00" textOverrun="CENTER_ELLIPSIS" underline="true">
+         <font>
+            <Font name="High Tower Text Italic" size="79.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" alignment="CENTER_RIGHT" layoutX="1734.0" layoutY="91.0" text="2021 - 08 - 20">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" alignment="CENTER_RIGHT" layoutX="1685.0" layoutY="1.0" prefHeight="94.0" prefWidth="232.0" text="08:15:26">
+         <font>
+            <Font name="System Bold" size="58.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="134.0" prefHeight="875.0" prefWidth="1931.0" style="-fx-background-color: #6ECFEF;" />
+      <JFXTabPane layoutY="134.0" prefHeight="875.0" prefWidth="1931.0" stylesheets="@../styles/Button.css">
+         <tabs>
+            <Tab styleClass="tab-main" text="Stock Management">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../styles/Button.css">
+                     <children>
+                        <TableView fx:id="tblItem" layoutX="324.0" layoutY="384.0" prefHeight="372.0" prefWidth="1284.0" style="-fx-background-color: white;">
+                          <columns>
+                            <TableColumn fx:id="colItemCode" prefWidth="117.00003051757812" text="Item Code" />
+                            <TableColumn fx:id="colDescription" prefWidth="376.9999694824219" text="Description" />
+                              <TableColumn fx:id="colPackSize" prefWidth="187.0" text="Pack Size" />
+                              <TableColumn fx:id="colQuantity" prefWidth="182.0" text="Quantity On Hand" />
+                              <TableColumn fx:id="colDiscount" prefWidth="204.0" text="Discount(Rs.)" />
+                              <TableColumn fx:id="colUnitPrice" prefWidth="214.0" text="Unit Price(Rs.)" />
+                          </columns>
+                        </TableView>
+                        <JFXTextField fx:id="txtItemCode" editable="false" labelFloat="true" layoutX="324.0" layoutY="60.0" prefHeight="47.0" prefWidth="345.0" promptText="Item Code" text="I-001">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtDescription" labelFloat="true" layoutX="755.0" layoutY="60.0" onAction="#moveToPackSize" prefHeight="47.0" prefWidth="850.0" promptText="Description">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtPackSize" labelFloat="true" layoutX="324.0" layoutY="154.0" onAction="#moveToQtyOnHand" prefHeight="47.0" prefWidth="239.0" promptText="Pack Size">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtQuantityOnHand" labelFloat="true" layoutX="642.0" layoutY="154.0" onAction="#moveToDiscount" prefHeight="47.0" prefWidth="267.0" promptText="Quantity On Hand">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtDiscount" labelFloat="true" layoutX="966.0" layoutY="154.0" onAction="#moveToUnitPrice" prefHeight="47.0" prefWidth="296.0" promptText="Discount(Rs.)">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtUnitPrice" labelFloat="true" layoutX="1315.0" layoutY="154.0" prefHeight="47.0" prefWidth="293.0" promptText="Unit Price(Rs.)">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXButton buttonType="RAISED" layoutX="1464.0" layoutY="256.0" onAction="#clearOnAction" prefHeight="47.0" prefWidth="141.0" stylesheets="@../styles/Button.css" text="Clear">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="1079.0" layoutY="256.0" onAction="#updateItemOnAction" prefHeight="47.0" prefWidth="174.0" stylesheets="@../styles/Button.css" text="Update Item">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton fx:id="btnAddItem" buttonType="RAISED" layoutX="879.0" layoutY="256.0" onAction="#addItemOnAction" prefHeight="47.0" prefWidth="174.0" stylesheets="@../styles/Button.css" text="Add Item">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXTextField fx:id="txtSearchCode" labelFloat="true" layoutX="324.0" layoutY="256.0" onAction="#searchItemOnAction" prefHeight="47.0" prefWidth="335.0" promptText="Search Item Code">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXButton buttonType="RAISED" layoutX="1274.0" layoutY="256.0" onAction="#deleteItemOnAction" prefHeight="47.0" prefWidth="174.0" stylesheets="@../styles/Button.css" text="Delete Item">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab styleClass="tab-main" text="Customer List">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tblCustomer" layoutX="321.0" layoutY="126.0" prefHeight="557.0" prefWidth="1289.0" style="-fx-background-color: white;">
+                          <columns>
+                            <TableColumn fx:id="colCustId" prefWidth="107.0" text="Customer ID" />
+                            <TableColumn fx:id="colCustomerTitle" prefWidth="154.0" text="Customer Title" />
+                              <TableColumn fx:id="colCustomerName" prefWidth="203.0" text="Name" />
+                              <TableColumn fx:id="colNIC" prefWidth="150.0" text="NIC" />
+                              <TableColumn fx:id="colCustomerAddress" prefWidth="211.0" text="Address" />
+                              <TableColumn fx:id="colCustomerCity" prefWidth="151.0" text="City" />
+                              <TableColumn fx:id="colCustomerProvince" prefWidth="173.0" text="Province" />
+                              <TableColumn fx:id="colPostalCode" prefWidth="139.0" text="Postal Code" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab styleClass="tab-main" text="Reports">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Circle layoutX="25.0" layoutY="90.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="51.0" layoutY="73.0" text="Annual Income" underline="true">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle layoutX="1011.0" layoutY="90.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="1034.0" layoutY="73.0" text="Monthly Income" underline="true">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle layoutX="25.0" layoutY="466.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="51.0" layoutY="449.0" text="Daily Income" underline="true">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle layoutX="1011.0" layoutY="466.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="1034.0" layoutY="449.0" text="Customer Wise Income" underline="true">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle layoutX="379.0" layoutY="42.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="408.0" layoutY="25.0" text="Most Movable Item :-">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="667.0" layoutY="25.0" prefHeight="40.0" prefWidth="273.0" text=" " textFill="#e40000">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle layoutX="1305.0" layoutY="42.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="1334.0" layoutY="25.0" text="Least Movable Item :-">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="1593.0" layoutY="25.0" prefHeight="40.0" prefWidth="273.0" text=" " textFill="#e40000">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <JFXComboBox fx:id="cmbYear" labelFloat="true" layoutX="337.0" layoutY="127.0" prefHeight="40.0" prefWidth="143.0" promptText="Year">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXComboBox>
+                        <TableView fx:id="tblAnnualIncome" layoutX="51.0" layoutY="188.0" prefHeight="200.0" prefWidth="781.0" style="-fx-background-color: white;">
+                          <columns>
+                            <TableColumn fx:id="colAnnualOid" prefWidth="97.0" text="Order ID" />
+                            <TableColumn fx:id="colAnnualOrderDate" prefWidth="132.0" text="Order Date" />
+                              <TableColumn fx:id="colAnnualCustomerNic" prefWidth="166.0" text="Customer NIC" />
+                              <TableColumn fx:id="colAnnualDiscount" prefWidth="131.0" text="Discount" />
+                              <TableColumn fx:id="colAnnualGrossTotal" prefWidth="134.0" text="Gross Total" />
+                              <TableColumn fx:id="colAnnualNetTotal" prefWidth="120.0" text="Net Total" />
+                          </columns>
+                        </TableView>
+                        <TableView fx:id="tblMonthlyIncome" layoutX="1055.0" layoutY="188.0" prefHeight="200.0" prefWidth="781.0" style="-fx-background-color: white;">
+                           <columns>
+                              <TableColumn fx:id="colMonthlyOrderId" prefWidth="97.0" text="Order ID" />
+                              <TableColumn fx:id="colMonthlyOrderDate" prefWidth="132.0" text="Order Date" />
+                              <TableColumn fx:id="colMonthlyCustomerNIC" prefWidth="166.0" text="Customer NIC" />
+                              <TableColumn fx:id="colMonthlyDiscount" prefWidth="131.0" text="Discount" />
+                              <TableColumn fx:id="colMonthlyGrossTotal" prefWidth="134.0" text="Gross Total" />
+                              <TableColumn fx:id="colMonthlyNetTotal" prefWidth="120.0" text="Net Total" />
+                           </columns>
+                        </TableView>
+                        <JFXComboBox fx:id="cmbMonth" labelFloat="true" layoutX="1495.0" layoutY="127.0" prefHeight="40.0" prefWidth="143.0" promptText="Month">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXComboBox>
+                        <TableView fx:id="tblDailyIncome" layoutX="51.0" layoutY="555.0" prefHeight="200.0" prefWidth="781.0" style="-fx-background-color: white;">
+                           <columns>
+                              <TableColumn fx:id="colDailyOrderId" prefWidth="97.0" text="Order ID" />
+                              <TableColumn fx:id="colDailyOrderDate" prefWidth="132.0" text="Order Date" />
+                              <TableColumn fx:id="colDailyCustomerNIC" prefWidth="166.0" text="Customer NIC" />
+                              <TableColumn fx:id="colDailyDiscount" prefWidth="131.0" text="Discount" />
+                              <TableColumn fx:id="colDailyGrossTotal" prefWidth="134.0" text="Gross Total" />
+                              <TableColumn fx:id="colDailyNetTotal" prefWidth="120.0" text="Net Total" />
+                           </columns>
+                        </TableView>
+                        <TableView fx:id="tblCustomerWiseIncome" layoutX="1055.0" layoutY="555.0" prefHeight="200.0" prefWidth="781.0" style="-fx-background-color: white;">
+                           <columns>
+                              <TableColumn fx:id="colCustomerOrderId" prefWidth="97.0" text="Order ID" />
+                              <TableColumn fx:id="colCustomerOrderDate" prefWidth="132.0" text="Order Date" />
+                              <TableColumn fx:id="colCustomerNic" prefWidth="166.0" text="Customer NIC" />
+                              <TableColumn fx:id="colCustomerDiscount" prefWidth="131.0" text="Discount" />
+                              <TableColumn fx:id="colCustomerGrossTotal" prefWidth="134.0" text="Gross Total" />
+                              <TableColumn fx:id="colCustomerNetTotal" prefWidth="120.0" text="Net Total" />
+                           </columns>
+                        </TableView>
+                        <JFXComboBox fx:id="cmbCustomerNIC" labelFloat="true" layoutX="1347.0" layoutY="501.0" prefHeight="40.0" prefWidth="219.0" promptText="Customer NIC">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXComboBox>
+                        <Label fx:id="lblMostMovableItem" layoutX="667.0" layoutY="23.0" prefHeight="40.0" prefWidth="242.0" text=" " textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblLeastMovableItem" layoutX="1593.0" layoutY="22.0" prefHeight="40.0" prefWidth="242.0" text=" " textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="570.0" layoutY="399.0" prefHeight="27.0" prefWidth="129.0" text="Net Income  :- " textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblAnnualIncome" layoutX="705.0" layoutY="399.0" prefHeight="27.0" prefWidth="128.0" text=" " textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="1566.0" layoutY="399.0" prefHeight="27.0" prefWidth="129.0" text="Net Income  :- " textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMonthlyIncome" layoutX="1708.0" layoutY="399.0" prefHeight="27.0" prefWidth="128.0" text=" " textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="570.0" layoutY="763.0" prefHeight="27.0" prefWidth="129.0" text="Net Income  :- " textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblDailyIncome" layoutX="705.0" layoutY="763.0" prefHeight="27.0" prefWidth="128.0" text=" " textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="1566.0" layoutY="763.0" prefHeight="27.0" prefWidth="129.0" text="Net Income  :- " textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCustomerIncome" layoutX="1708.0" layoutY="763.0" prefHeight="27.0" prefWidth="128.0" text=" " textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXDatePicker fx:id="dailyDate" layoutX="326.0" layoutY="506.0" onAction="#setDailyOrderDetailsToTable" prefHeight="31.0" prefWidth="164.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXDatePicker>
+                        <JFXComboBox fx:id="cmbYearSelected" labelFloat="true" layoutX="1286.0" layoutY="127.0" prefHeight="40.0" prefWidth="143.0" promptText="Year">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXComboBox>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab styleClass="tab-main" text="User Management">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="619.0" layoutY="81.0" prefHeight="663.0" prefWidth="694.0" style="-fx-border-color: black; -fx-border-radius: 50;">
+                           <children>
+                              <Label alignment="CENTER" layoutX="15.0" layoutY="35.0" prefHeight="56.0" prefWidth="662.0" text="Sign Up Form">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="15.0" layoutY="102.0" prefHeight="5.0" prefWidth="655.0" />
+                              <JFXTextField fx:id="txtFirstName" labelFloat="true" layoutX="100.0" layoutY="135.0" onAction="#moveToLastName" prefHeight="31.0" prefWidth="496.0" promptText="First Name">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtLastName" labelFloat="true" layoutX="99.0" layoutY="203.0" onAction="#moveToUserName" prefHeight="31.0" prefWidth="496.0" promptText="Last Name">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtUserName" labelFloat="true" layoutX="98.0" layoutY="271.0" onAction="#moveToPassword" prefHeight="31.0" prefWidth="496.0" promptText="User Name">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtPassword" labelFloat="true" layoutX="99.0" layoutY="339.0" onAction="#moveToConfirmPassword" prefHeight="31.0" prefWidth="496.0" promptText="Password">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtConfirmPassword" labelFloat="true" layoutX="98.0" layoutY="406.0" prefHeight="31.0" prefWidth="496.0" promptText="Confirm Password">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXButton layoutX="238.0" layoutY="555.0" onAction="#signUpUsersOnAction" prefHeight="40.0" prefWidth="217.0" stylesheets="@../styles/Button.css" text="SignUp">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                              <JFXComboBox fx:id="cmbUserType" labelFloat="true" layoutX="99.0" layoutY="474.0" prefHeight="31.0" prefWidth="496.0" promptText="User Type">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXComboBox>
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>
